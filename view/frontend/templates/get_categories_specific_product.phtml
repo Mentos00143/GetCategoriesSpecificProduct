@@ -1,0 +1,18 @@
+<?php
+
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var \Perspective\GetCategoriesSpecificProduct\ViewModel\GetCategoriesSpecificProduct $viewModel */
+
+$viewModel = $block->getData('view_model');
+?>
+
+<?php if ($categories = $viewModel->getCategories()): ?>
+
+    <div class="categories">
+        <?php foreach ($categories as $category): ?>
+            <div class="category">
+                <span class="title"><a href="<?php echo $category->getUrl(); ?>"><?php echo $category->getName()?></a></span>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
